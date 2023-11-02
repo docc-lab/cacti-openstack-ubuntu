@@ -1,4 +1,4 @@
-# CloudLab profile setup script fork for Pythia
+# CloudLab profile setup script fork for CACTI
 
 It's the repo that's used by Pythia's CloudLab profile.
 Please follow the [instructions in Pythia repo](https://github.com/docc-lab/pythia) to use.
