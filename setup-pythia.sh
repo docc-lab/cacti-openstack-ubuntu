@@ -111,6 +111,7 @@ su geniuser -c "cargo update --manifest-path /local/cacti-dev/pythia_server/Carg
 su geniuser -c "cargo install --locked --path /local/cacti-dev"
 su geniuser -c "cargo install --locked --path /local/cacti-dev/pythia_server"
 sudo ln -s /users/geniuser/.cargo/bin/pythia_server /usr/local/bin/
+sudo ln -s /users/geniuser/.cargo/bin/pythia /usr/bin/pythia
 sudo ln -s /local/cacti-dev /users/geniuser/
 sudo ln -s /local/dotfiles /users/geniuser/
 
