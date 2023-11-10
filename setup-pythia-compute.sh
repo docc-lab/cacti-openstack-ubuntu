@@ -68,9 +68,10 @@ done
 echo "y" | rm -r /local/reconstruction/
 sudo echo "y" | rm -i /users/geniuser/reconstruction
 #git clone https://github.com/docc-lab/pythia.git
-git clone https://github.com/docc-lab/cacti-dev.git
-#chmod -R 777 /local/pythia
-chmod -R 777 /local/cacti-dev
+#git clone https://github.com/docc-lab/cacti-dev.git
+git clone https://github.com/docc-lab/cacti-dev.git pythia
+chmod -R 777 /local/pythia
+#chmod -R 777 /local/cacti-dev
 
 mkdir -p /opt/stack/manifest
 chmod -R g+rwX /opt/
@@ -147,10 +148,10 @@ service_restart libvirt-guests.service
 
 sudo chronyc -a 'burst 4/4'
 
-#sudo ln -s /local/pythia/etc/systemd/system/pythia.service /etc/systemd/system/
-#sudo ln -s /local/pythia/etc/pythia /etc/
-sudo ln -s /local/cacti-dev/etc/systemd/system/pythia.service /etc/systemd/system/
-sudo ln -s /local/cacti-dev/etc/pythia /etc/
+sudo ln -s /local/pythia/etc/systemd/system/pythia.service /etc/systemd/system/
+sudo ln -s /local/pythia/etc/pythia /etc/
+#sudo ln -s /local/cacti-dev/etc/systemd/system/pythia.service /etc/systemd/system/
+#sudo ln -s /local/cacti-dev/etc/pythia /etc/
 chmod -R g+rwX /etc/pythia
 chmod -R o+rwX /etc/pythia
 

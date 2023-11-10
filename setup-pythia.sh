@@ -70,8 +70,10 @@ done
 # Remove reconstruction repo & clone new pythia repo
 echo "y" | rm -r /local/reconstruction/
 sudo echo "y" | rm -i /users/geniuser/reconstruction
-git clone https://github.com/docc-lab/cacti-dev.git
-chmod -R 777 /local/cacti-dev
+#git clone https://github.com/docc-lab/cacti-dev.git
+git clone https://github.com/docc-lab/cacti-dev.git pythia
+chmod -R 777 /local/pythia
+#chmod -R 777 /local/cacti-dev
 
 PHOSTS=""
 mkdir -p $OURDIR/pssh.setup-pythia.stdout $OURDIR/pssh.setup-pythia.stderr
@@ -96,24 +98,25 @@ rustup update stable
 echo "**** Mert updating rust for match compile error ***"
 
 
-#chown geniuser -R /local/pythia
-#su geniuser -c "cargo update --manifest-path /local/pythia/Cargo.toml -p lexical-core"
-#su geniuser -c "cargo update --manifest-path /local/pythia/pythia_server/Cargo.toml -p lexical-core"
-#su geniuser -c "cargo install --locked --path /local/pythia"
-#su geniuser -c "cargo install --locked --path /local/pythia/pythia_server"
-#sudo ln -s /users/geniuser/.cargo/bin/pythia_server /usr/local/bin/
-#sudo ln -s /local/pythia /users/geniuser/
-#sudo ln -s /local/dotfiles /users/geniuser/
-
-chown geniuser -R /local/cacti-dev
-su geniuser -c "cargo update --manifest-path /local/cacti-dev/Cargo.toml -p lexical-core"
-su geniuser -c "cargo update --manifest-path /local/cacti-dev/pythia_server/Cargo.toml -p lexical-core"
-su geniuser -c "cargo install --locked --path /local/cacti-dev"
-su geniuser -c "cargo install --locked --path /local/cacti-dev/pythia_server"
+chown geniuser -R /local/pythia
+su geniuser -c "cargo update --manifest-path /local/pythia/Cargo.toml -p lexical-core"
+su geniuser -c "cargo update --manifest-path /local/pythia/pythia_server/Cargo.toml -p lexical-core"
+su geniuser -c "cargo install --locked --path /local/pythia"
+su geniuser -c "cargo install --locked --path /local/pythia/pythia_server"
 sudo ln -s /users/geniuser/.cargo/bin/pythia_server /usr/local/bin/
 sudo ln -s /users/geniuser/.cargo/bin/pythia /usr/bin/pythia
-sudo ln -s /local/cacti-dev /users/geniuser/
+sudo ln -s /local/pythia /users/geniuser/
 sudo ln -s /local/dotfiles /users/geniuser/
+
+#chown geniuser -R /local/cacti-dev
+#su geniuser -c "cargo update --manifest-path /local/cacti-dev/Cargo.toml -p lexical-core"
+#su geniuser -c "cargo update --manifest-path /local/cacti-dev/pythia_server/Cargo.toml -p lexical-core"
+#su geniuser -c "cargo install --locked --path /local/cacti-dev"
+#su geniuser -c "cargo install --locked --path /local/cacti-dev/pythia_server"
+#sudo ln -s /users/geniuser/.cargo/bin/pythia_server /usr/local/bin/
+#sudo ln -s /users/geniuser/.cargo/bin/pythia /usr/bin/pythia
+#sudo ln -s /local/cacti-dev /users/geniuser/
+#sudo ln -s /local/dotfiles /users/geniuser/
 
 mkdir -p /opt/stack/manifest
 chmod -R g+rwX /opt/
@@ -218,19 +221,19 @@ sudo chronyc -a 'burst 4/4'
 wget https://download.cirros-cloud.net/0.5.1/cirros-0.5.1-${ARCH}-disk.img
 openstack image create --file cirros-0.5.1-${ARCH}-disk.img cirros
 
-#sudo ln -s /local/pythia/etc/systemd/system/pythia.service /etc/systemd/system/
-#sudo ln -s /local/pythia/etc/pythia /etc/
-#chmod -R g+rwX /etc/pythia
-#chmod -R o+rwX /etc/pythia
-#
-#chmod -R 777 /local/pythia/workloads
-
-sudo ln -s /local/cacti-dev/etc/systemd/system/pythia.service /etc/systemd/system/
-sudo ln -s /local/cacti-dev/etc/pythia /etc/
+sudo ln -s /local/pythia/etc/systemd/system/pythia.service /etc/systemd/system/
+sudo ln -s /local/pythia/etc/pythia /etc/
 chmod -R g+rwX /etc/pythia
 chmod -R o+rwX /etc/pythia
 
-chmod -R 777 /local/cacti-dev/workloads
+chmod -R 777 /local/pythia/workloads
+
+#sudo ln -s /local/cacti-dev/etc/systemd/system/pythia.service /etc/systemd/system/
+#sudo ln -s /local/cacti-dev/etc/pythia /etc/
+#chmod -R g+rwX /etc/pythia
+#chmod -R o+rwX /etc/pythia
+#
+#chmod -R 777 /local/cacti-dev/workloads
 
 sudo systemctl start pythia.service
 
