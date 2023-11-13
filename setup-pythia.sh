@@ -99,10 +99,14 @@ echo "**** Mert updating rust for match compile error ***"
 
 
 chown geniuser -R /local/pythia
-su geniuser -c "cargo update --manifest-path /local/pythia/Cargo.toml -p lexical-core"
-su geniuser -c "cargo update --manifest-path /local/pythia/pythia_server/Cargo.toml -p lexical-core"
-su geniuser -c "cargo install --locked --path /local/pythia"
-su geniuser -c "cargo install --locked --path /local/pythia/pythia_server"
+#su geniuser -c "cargo update --manifest-path /local/pythia/Cargo.toml -p lexical-core"
+#su geniuser -c "cargo update --manifest-path /local/pythia/pythia_server/Cargo.toml -p lexical-core"
+#su geniuser -c "cargo install --locked --path /local/pythia"
+#su geniuser -c "cargo install --locked --path /local/pythia/pythia_server"
+sudo su geniuser -c "cargo update --manifest-path /local/pythia/Cargo.toml -p lexical-core"
+sudo su geniuser -c "cargo update --manifest-path /local/pythia/pythia_server/Cargo.toml -p lexical-core"
+sudo su geniuser -c "cargo install --locked --path /local/pythia"
+sudo su geniuser -c "cargo install --locked --path /local/pythia/pythia_server"
 sudo ln -s /users/geniuser/.cargo/bin/pythia_server /usr/local/bin/
 sudo ln -s /users/geniuser/.cargo/bin/pythia /usr/bin/pythia
 sudo ln -s /local/pythia /users/geniuser/
