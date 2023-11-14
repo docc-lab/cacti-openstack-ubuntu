@@ -104,13 +104,13 @@ chown geniuser -R /local/pythia
 #su geniuser -c "cargo install --locked --path /local/pythia"
 #su geniuser -c "cargo install --locked --path /local/pythia/pythia_server"
 echo "phase 0" >> cargo_phases.txt
-su geniuser -c "cargo update --manifest-path /local/pythia/Cargo.toml -p lexical-core > ~/lc0_out.txt 2> ~/lc0_err.txt"
+su geniuser -c "cargo update --manifest-path /local/pythia/Cargo.toml -p lexical-core" > /local/lc0_out.txt 2> /local/lc0_err.txt
 echo "phase 1" >> cargo_phases.txt
-su geniuser -c "cargo update --manifest-path /local/pythia/pythia_server/Cargo.toml -p lexical-core > ~/lc1_out.txt 2> ~/lc1_err.txt"
+su geniuser -c "cargo update --manifest-path /local/pythia/pythia_server/Cargo.toml -p lexical-core" > /local/lc1_out.txt 2> /local/lc1_err.txt
 echo "phase 2" >> cargo_phases.txt
-su geniuser -c "cargo install --locked --path /local/pythia > ~/pythia_out.txt 2> ~/pythia_err.txt"
+su geniuser -c "cargo install --locked --path /local/pythia" > /local/pythia_out.txt 2> /local/pythia_err.txt
 echo "phase 3" >> cargo_phases.txt
-su geniuser -c "cargo install --locked --path /local/pythia/pythia_server > ~/pythia_server_out.txt 2> ~/pythia_server_err.txt"
+su geniuser -c "cargo install --locked --path /local/pythia/pythia_server" > /local/pythia_server_out.txt 2> /local/pythia_server_err.txt
 echo "phase 4" >> cargo_phases.txt
 sudo ln -s /users/geniuser/.cargo/bin/pythia_server /usr/local/bin/
 sudo ln -s /users/geniuser/.cargo/bin/pythia /usr/bin/pythia
