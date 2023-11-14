@@ -88,24 +88,25 @@ rustup update stable
 echo "**** Mert updating rust for match compile error ***"
 
 
-#chown geniuser -R /local/pythia
-#su geniuser -c "cargo update --manifest-path /local/pythia/Cargo.toml -p lexical-core"
-#su geniuser -c "cargo update --manifest-path /local/pythia/pythia_server/Cargo.toml -p lexical-core"
-#su geniuser -c "cargo install --locked --path /local/pythia"
-#su geniuser -c "cargo install --locked --path /local/pythia/pythia_server"
-#sudo ln -s /users/geniuser/.cargo/bin/pythia_server /usr/local/bin/
-#sudo ln -s /local/pythia /users/geniuser/
-#sudo ln -s /local/dotfiles /users/geniuser/
-
-chown geniuser -R /local/cacti-dev
-su geniuser -c "cargo update --manifest-path /local/cacti-dev/Cargo.toml -p lexical-core"
-su geniuser -c "cargo update --manifest-path /local/cacti-dev/pythia_server/Cargo.toml -p lexical-core"
-su geniuser -c "cargo install --locked --path /local/cacti-dev"
-su geniuser -c "cargo install --locked --path /local/cacti-dev/pythia_server"
+chown geniuser -R /local/pythia
+su geniuser -c "cargo update --manifest-path /local/pythia/Cargo.toml -p lexical-core"
+su geniuser -c "cargo update --manifest-path /local/pythia/pythia_server/Cargo.toml -p lexical-core"
+su geniuser -c "cargo install --locked --path /local/pythia"
+su geniuser -c "cargo install --locked --path /local/pythia/pythia_server"
 sudo ln -s /users/geniuser/.cargo/bin/pythia_server /usr/local/bin/
 sudo ln -s /users/geniuser/.cargo/bin/pythia /usr/bin/pythia
-sudo ln -s /local/cacti-dev /users/geniuser/
+sudo ln -s /local/pythia /users/geniuser/
 sudo ln -s /local/dotfiles /users/geniuser/
+
+#chown geniuser -R /local/cacti-dev
+#su geniuser -c "cargo update --manifest-path /local/cacti-dev/Cargo.toml -p lexical-core"
+#su geniuser -c "cargo update --manifest-path /local/cacti-dev/pythia_server/Cargo.toml -p lexical-core"
+#su geniuser -c "cargo install --locked --path /local/cacti-dev"
+#su geniuser -c "cargo install --locked --path /local/cacti-dev/pythia_server"
+#sudo ln -s /users/geniuser/.cargo/bin/pythia_server /usr/local/bin/
+#sudo ln -s /users/geniuser/.cargo/bin/pythia /usr/bin/pythia
+#sudo ln -s /local/cacti-dev /users/geniuser/
+#sudo ln -s /local/dotfiles /users/geniuser/
 
 echo -e 'nova\tALL=(ALL)\tNOPASSWD: ALL' >> /etc/sudoers
 
