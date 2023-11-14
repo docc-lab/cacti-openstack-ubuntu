@@ -103,10 +103,10 @@ chown geniuser -R /local/pythia
 #su geniuser -c "cargo update --manifest-path /local/pythia/pythia_server/Cargo.toml -p lexical-core"
 #su geniuser -c "cargo install --locked --path /local/pythia"
 #su geniuser -c "cargo install --locked --path /local/pythia/pythia_server"
-sudo su geniuser -c "cargo update --manifest-path /local/pythia/Cargo.toml -p lexical-core"
-sudo su geniuser -c "cargo update --manifest-path /local/pythia/pythia_server/Cargo.toml -p lexical-core"
-sudo su geniuser -c "cargo install --locked --path /local/pythia"
-sudo su geniuser -c "cargo install --locked --path /local/pythia/pythia_server"
+su geniuser -c "cargo update --manifest-path /local/pythia/Cargo.toml -p lexical-core > ~/lc0_out.txt 2> ~/lc0_err.txt"
+su geniuser -c "cargo update --manifest-path /local/pythia/pythia_server/Cargo.toml -p lexical-core > ~/lc1_out.txt 2> ~/lc1_err.txt"
+su geniuser -c "cargo install --locked --path /local/pythia > ~/pythia_out.txt 2> ~/pythia_err.txt"
+su geniuser -c "cargo install --locked --path /local/pythia/pythia_server > ~/pythia_server_out.txt 2> ~/pythia_server_err.txt"
 sudo ln -s /users/geniuser/.cargo/bin/pythia_server /usr/local/bin/
 sudo ln -s /users/geniuser/.cargo/bin/pythia /usr/bin/pythia
 sudo ln -s /local/pythia /users/geniuser/
