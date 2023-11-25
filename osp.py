@@ -813,6 +813,7 @@ if mgmtlan:
 if TBURL is not None:
     controller.addService(RSpec.Install(url=TBURL, path="/tmp"))
 controller.addService(RSpec.Execute(shell="sh",command=TBCMD))
+controller.addService(RSpec.Execute(shell="bash", command="/local/repository/changeShells.sh"))
 if disableTestbedRootKeys:
     controller.installRootKeys(False, False)
 if params.tempBlockstoreMountPoint \
@@ -880,6 +881,7 @@ if params.controllerHost != params.networkManagerHost:
     if TBURL is not None:
         networkManager.addService(RSpec.Install(url=TBURL, path="/tmp"))
     networkManager.addService(RSpec.Execute(shell="sh",command=TBCMD))
+    networkManager.addService(RSpec.Execute(shell="bash", command="/local/repository/changeShells.sh"))
     if disableTestbedRootKeys:
         networkManager.installRootKeys(False, False)
     if params.tempBlockstoreMountPoint \
@@ -947,6 +949,7 @@ for (siteNumber,cpnameList) in computeNodeNamesBySite.iteritems():
         if TBURL is not None:
             cpnode.addService(RSpec.Install(url=TBURL, path="/tmp"))
         cpnode.addService(RSpec.Execute(shell="sh",command=TBCMD))
+        cpnode.addService(RSpec.Execute(shell="bash", command="/local/repository/changeShells.sh"))
         if disableTestbedRootKeys:
             cpnode.installRootKeys(False, False)
         if params.tempBlockstoreMountPoint \
