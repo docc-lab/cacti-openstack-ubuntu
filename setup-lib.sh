@@ -1523,9 +1523,9 @@ service_disable() {
 service_restart() {
     service=$1
     if [ ${HAVE_SYSTEMD} -eq 0 ]; then
-	service $service restart
+	sudo service $service restart
     else
-	systemctl restart $service
+	sudo systemctl restart $service
     fi
 }
 

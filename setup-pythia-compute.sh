@@ -70,6 +70,7 @@ sudo echo "y" | rm -i /users/geniuser/reconstruction
 #git clone https://github.com/docc-lab/pythia.git
 #git clone https://github.com/docc-lab/cacti-dev.git
 git clone https://github.com/docc-lab/cacti-dev.git pythia
+touch touch_test.txt
 chmod -R 777 /local/pythia
 #chmod -R 777 /local/cacti-dev
 
